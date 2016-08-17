@@ -6,15 +6,17 @@ namespace :populate_pokemons do
 
     pokemons_dump = File.expand_path("lib/data/pokemons.csv", Rails.root.to_s)
 
+    index = 0
+
     CSV.foreach(pokemons_dump) do |row|
       # ["id", "identifier", "species_id", "height(m)", "weight(kg)", "base_experience", "order", "is_default"]
+      next if $. == 1
 
       puts "CATCHING #{row[1]}..."
       Pokemon.find_or_create_by(pokemon_identifier: row[0].to_i) do |pokemon|
         pokemon.name = row[1]
       end
       puts "GOT YA!"
-
     end
   end
 end
