@@ -1,6 +1,3 @@
 %div
-  = link_to matchup.first.name.capitalize, matchup_path(matchup.first, matchup_ids: matchup.map(&:id)), method: :patch
-
-  VS. 
-
-  = link_to matchup.last.name.capitalize, matchup_path(matchup.last, matchup_ids: matchup.map(&:id)), method: :patch
+  - matchup.each do |pokemon|
+    = link_to pokemon.name.capitalize, matchup_path(pokemon, matchup_ids: matchup.map(&:id)), method: :patch
