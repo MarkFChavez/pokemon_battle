@@ -1,11 +1,11 @@
 class HomeController < ApplicationController
   def index
-    @matchup = matchup.generate
+    render "index", locals: { matchup: matchup }
   end
 
   private
 
     def matchup
-      MatchupGenerator.new
+      MatchupGenerator.new.generate
     end
 end
