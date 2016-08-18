@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817064608) do
+ActiveRecord::Schema.define(version: 20160818091531) do
+
+  create_table "battles", force: :cascade do |t|
+    t.integer  "player_one_id"
+    t.integer  "player_two_id"
+    t.integer  "victor_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "battles", ["player_one_id"], name: "index_battles_on_player_one_id"
+  add_index "battles", ["player_two_id"], name: "index_battles_on_player_two_id"
+  add_index "battles", ["victor_id"], name: "index_battles_on_victor_id"
 
   create_table "pokemons", force: :cascade do |t|
     t.string   "name"
