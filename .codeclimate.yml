@@ -1,3 +1,32 @@
+languages:
+  Ruby: true
+
 engines:
+  coffeelint:
+    enabled: true
+  rubocop:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+        - ruby
+  fixme:
+    enabled: true
+  brakeman:
+    enabled: true
+  rubymotion:
+    enabled: true
   bundler-audit:
-    enabled: false
+    enabled: true
+
+ratings:
+  paths:
+    - "**.rb"
+
+exclude_paths:
+  - lib/tasks/**
+  - spec/**
+  - vendor/**
+  - deploy/**
+  - db/**
