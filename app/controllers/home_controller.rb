@@ -6,6 +6,6 @@ class HomeController < ApplicationController
   private
 
     def matchup
-      MatchupGenerator.new(Pokemon)
+      MatchupGenerator.new
     end
 end

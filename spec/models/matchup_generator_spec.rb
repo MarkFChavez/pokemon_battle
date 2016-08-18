@@ -2,8 +2,14 @@ require 'spec_helper'
 
 describe MatchupGenerator do
 
+  it "defaults subject to `Pokemon`" do
+    matchup = MatchupGenerator.new
+
+    expect(matchup.subject).to eq Pokemon
+  end
+
   it "defaults limit to 2" do
-    matchup = MatchupGenerator.new(Pokemon)
+    matchup = MatchupGenerator.new
 
     expect(matchup.limit).to eq 2
   end
@@ -16,7 +22,7 @@ describe MatchupGenerator do
     end
 
     it "returns two random pokemons" do
-      matchup = MatchupGenerator.new(Pokemon)
+      matchup = MatchupGenerator.new
 
       expected = [Pokemon, Pokemon]
 
