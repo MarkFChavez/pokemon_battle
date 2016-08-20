@@ -21,7 +21,12 @@ Dir.chdir APP_ROOT do
   system "bin/rake db:setup"
 
   puts "\n== Running scripts =="
+
+  puts "\n== CREATE POKEMONS=="
   system "rake populate_pokemons:start"
+
+  puts "\n== ADD POKEMON TYPES=="
+  system "rake populate_pokemon_types:start"
 
   puts "\n== Removing old logs and tempfiles =="
   system "rm -f log/*"
