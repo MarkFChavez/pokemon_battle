@@ -1,4 +1,6 @@
 %div
   - matchup.each do |pokemon|
-    = link_to pokemon.name.capitalize, matchup_path(pokemon, matchup_ids: matchup.map(&:id)), method: :patch
-    = image_tag(pokemon.sprite_url)
+    %div
+      = link_to pokemon.name.capitalize, matchup_path(pokemon, matchup_ids: matchup.map(&:id)), method: :patch
+
+      = image_tag(pokemon.sprite_url)
